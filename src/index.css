@@ -1,0 +1,48 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(6, 6, 6, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+}
+#game-container{
+  max-width: 45rem;
+  margin:3rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+  background: rgb(246, 246, 132);
+  box-shadow: 0 0 20px rgba(246, 246, 132,0.9);
+  position:relative;
+}
+#players{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-right: 20px;
+}
+.player-name,.player-symbol,.button {
+  margin-right: 20px; 
+}
+.player:hover{
+  border: 1px solid;
+  cursor: pointer;
+  padding: 10px;
+}
+.player-name:hover{
+  border: 1px solid;
+  cursor: pointer;
+  padding: 5px;
+}
