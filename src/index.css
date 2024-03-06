@@ -41,7 +41,7 @@ header{
   margin-right: 5px; 
 }
 .player {
-  border: 1px solid rgb(246, 246, 132);
+  border: 1px solid rgb(241, 241, 125);
   padding: 10px 10px;
 }
 .player:hover{
@@ -49,6 +49,15 @@ header{
 }
 .player-name{
   padding: 5px;
+}
+
+.highlight-player li.active{
+  border-color: #e81e1e;
+  animation: pulse 2s infinite ease-in-out;
+}
+#players.highlight-player li.active .player-name,
+#players.highlight-player li.active .player-symbol{
+  color: #e21919;
 }
 
 #game-board {
@@ -70,13 +79,19 @@ header{
 }
 
 #game-board button {
-  width:50px;
-  height: 50px;
-  font-size: 1.5rem;
+  min-width: 50px; /* Minimum width of the button */
+  min-height: 50px; /* Minimum height of the button */
   border: 1px solid #000;
   background-color: #fff;
+  text-align: center; /* Align text in the center horizontally */
+  
 }
 
+#game-board button:active {
+  /* Preserve the width and height when button is clicked */
+  min-width: 50px; 
+  min-height: 50px; 
+}
 #game-board button:hover {
-  background-color: #f0f0f0;
+  background-color: #f6f5f8;
 }

@@ -1,34 +1,34 @@
-import React, {useState} from 'react'
+import { useState } from "react";
 
 
-const GameBoard = () => {
-    const initGameValues = [
-        [null,null,null],
-        [null,null,null],
-        [null,null,null],
-    ]
-    const [playerCount, setPlayerCount] = useState(0)
-    const [initialGameBoard, setInitialGameBoard] = useState(initGameValues);
+const initialGameBoard = [
+    [null,null,null],
+    [null,null,null],
+    [null,null,null],
+];
+
+export default function GameBoard({onSelectSquare, activePlayerSymbol}) {
+    
+    const [gameBoard, setGameBoard] = useState(initialGameBoard);
+
     const handleBoard =(rowIndex, colIndex)=>{
-        setInitialGameBoard((prevGameBoard)=>{
-            //console.log('Prev Game Board=> ', prevGameBoard)
+        setGameBoard((prevGameBoard)=>{
             const updateBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
-            updateBoard[rowIndex][colIndex] = (playerCount % 2) === 0 ? 'X' : 'O';
+            //console.log('activePlayerSymbol => ', activePlayerSymbol)
+            updateBoard[rowIndex][colIndex] = activePlayerSymbol;
             return updateBoard;
         })
-        setPlayerCount((prevCount)=>{
-            const updateCount = prevCount + 1;
-            return updateCount
-        })
+    
+        onSelectSquare();
     }
     return (
         <ul id="game-board">
-            {initialGameBoard.map((row,rowIndex) => (
+            {gameBoard.map((row,rowIndex) => (
                 <li key={rowIndex}>
                     <ul className="game-item">
                     {row.map((playerSymbol,colIndex)=> (
                         <li key={colIndex}>
-                            <button onClick ={()=>handleBoard(rowIndex, colIndex)}>{playerSymbol ? playerSymbol : '-'}</button>
+                            <button onClick ={()=>handleBoard(rowIndex, colIndex)} disabled={playerSymbol !== null}>{playerSymbol}</button>
                         </li>
                     ))}
                     </ul>
@@ -37,6 +37,4 @@ const GameBoard = () => {
         </ul>
     )
 }
-
-export default GameBoard
 
