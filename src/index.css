@@ -54,12 +54,18 @@ header{
 .highlight-player li.active{
   border-color: #e81e1e;
   animation: pulse 2s infinite ease-in-out;
+  
 }
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol{
   color: #e21919;
+  
 }
-
+.Edit-btn{
+  color: black;
+  background-color:rgb(241, 241, 125);
+  border: none;
+}
 #game-board {
   display: grid;
   grid-template-columns: repeat(3, 50px); 
@@ -94,4 +100,35 @@ header{
 }
 #game-board button:hover {
   background-color: #f6f5f8;
+}
+#game-over-overlay {
+  position: fixed; /* Fixed positioning to overlay on top of the game board */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire viewport width */
+  height: 100%; /* Cover the entire viewport height */
+  background-color: rgba(10, 10, 10, 0.5); /* Semi-transparent black background */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 999; /* Ensure it appears on top of other elements */
+}
+
+#game-over-message {
+  width: 400px;
+  color: rgb(246, 246, 132);
+  background-color: rgba(12, 12, 12, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+#game-over-message button{
+  width: fit-content;
+  padding: 10px;
+  border: 1px Solid rgb(246, 246, 132);
+  background-color: rgb(246, 246, 132);
+}
+#game-over-message button:hover{
+  background-color: rgb(236, 236, 12);
+  color: #000;
 }
