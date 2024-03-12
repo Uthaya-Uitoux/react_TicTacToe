@@ -4,7 +4,7 @@
   import Log from './components/Log';
   import GameOver from './components/Gameover';
   import './App.css'
-  import { Winning } from './Winning';
+  import { Winning } from './components/winning';
 
 const PLAYERS ={
   X: 'Player 1',
